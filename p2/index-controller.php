@@ -9,12 +9,20 @@ $player2Roll = rand(0, 2);
 $player1Move = $moves[$player1Roll];
 $player2Move = $moves[$player2Roll];
 
-if ($player1Roll > $player2Roll) {
+// if ($player1Roll > $player2Roll) {
+//     $winner = "Player 1 wins!";
+// } elseif ($player1Roll == $player2Roll) {
+//     $winner = "It's a tie!";
+// } else {
+//     $winner = "Player 2 wins!";
+// };
+
+if (($player1Roll == 1 and $player2Roll == 0) || ($player1Roll == 2 and $player2Roll == 1) || ($player1Roll == 0 and $player2Roll == 2)) {
     $winner = "Player 1 wins!";
 } elseif ($player1Roll == $player2Roll) {
     $winner = "It's a tie!";
 } else {
-    $winner = "Player 2 wins!";
+   $winner = "Player 2 wins!";
 };
 
 
@@ -49,7 +57,6 @@ while ($guess != $target) {
     $i++;
 }
 
-// Is this line considered to be bad practice?
 $correct = "Player guessed the correct number, <strong>$target</strong>, in $i rounds!";
 
 
