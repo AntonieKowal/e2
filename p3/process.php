@@ -29,22 +29,24 @@ $i = $_SESSION["roundCount"];
 $_SESSION["correctGuess"] = null;
 $_SESSION["finalGuessAmount"] = null;
 
-if ($guess > $target) {
-    $direction = "lower";
-    $i++;
-} elseif ($guess < $target) {
-    $direction = "higher";
-    $i++;
-} elseif ($guess == $target) {
-    $round = null;
-    $directionArray = null;
-    $_SESSION["finalGuessAmount"] = $i;
-    $i = 1;
-    $correctGuess = $target;
-    $_SESSION["correctGuess"] = $correctGuess;
-    $target = rand(1, 20);
-    $_SESSION["target"] = $target;
-}
+if ($guess > 0 && $guess < 21) {
+    if ($guess > $target) {
+        $direction = "lower";
+        $i++;
+    } elseif ($guess < $target) {
+        $direction = "higher";
+        $i++;
+    } elseif ($guess == $target) {
+        $round = null;
+        $directionArray = null;
+        $_SESSION["finalGuessAmount"] = $i;
+        $i = 1;
+        $correctGuess = $target;
+        $_SESSION["correctGuess"] = $correctGuess;
+        $target = rand(1, 20);
+        $_SESSION["target"] = $target;
+    }
+
 
 array_push($round, $guess);
 array_push($directionArray, $direction);
@@ -52,5 +54,6 @@ array_push($directionArray, $direction);
 $_SESSION["guesses"] = $round;
 $_SESSION["directionArray"] = $directionArray;
 $_SESSION["roundCount"] = $i;
+}
 
 header("Location: index.php");
