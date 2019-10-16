@@ -20,8 +20,8 @@
     }
 
 
-    </style>
 
+    </style>
 </head>
 
 <body>
@@ -66,7 +66,7 @@
 
     <p>The computer will choose a random number between 1 and 20, and the user must attempt to guess the number. Input a number between 1 and 20 in
        the text field below, and upon submission, the computer will inform the user whether the correct number is higher or lower than their guess.
-       The user must repeatedly 
+       The user must repeatedly guess until they guess the correct number.
     
     <hr>
 
@@ -75,7 +75,7 @@
     <label for="guess">Guess a number between 1 and 20</label><br>
     <input type="text" name="guess" id="guess">
 
-    <button type="submit">Guess</button>
+    <button type="submit" id="guessButton">Guess</button>
     </form>
 
     <h2>Results</h2>
