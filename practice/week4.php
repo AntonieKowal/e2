@@ -18,5 +18,18 @@ $coins = ["heads", "tails"];
 // strtoupper($foo);
 // echo $foo;
 
-$test = "<div> sfdasfsfad</div>";
-echo $test;
+// $test = "<div> sfdasfsfad</div>";
+// echo $test;
+
+########################################################################################
+
+// $test = [];
+
+// if (!in_array($test, ["test"])) {
+//     echo "Test";
+// } else {
+//     echo "it's working";
+// }
+
+$day = "hello";
+echo $day;
