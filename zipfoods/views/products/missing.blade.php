@@ -6,7 +6,7 @@
 
 @section('content')
     
-    <h2>Product 99 not found</h2>
+    <h2>Product {{ $id }} not found</h2>
 
     <p>
     Uh oh - we were not able to find the product you were looking for.
