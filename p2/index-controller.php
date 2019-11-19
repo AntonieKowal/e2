@@ -22,7 +22,7 @@ if (($player1Roll == 1 and $player2Roll == 0) || ($player1Roll == 2 and $player2
 } elseif ($player1Roll == $player2Roll) {
     $winner = "It's a tie!";
 } else {
-   $winner = "Player 2 wins!";
+    $winner = "Player 2 wins!";
 };
 
 

@@ -29,6 +29,8 @@ if(isset($_SESSION["choice"])) {
     $_SESSION["choice"] = null;
 }
 
+
+// Higher or Lower
 if (!isset($_SESSION["target"])) {
     $target = rand(1, 20);
     $_SESSION["target"] = $target;
@@ -36,7 +38,7 @@ if (!isset($_SESSION["target"])) {
 
 $target = $_SESSION["target"];
 // the above 15 or so lines of code work, but I don't understand entirely why I couldn't just use the variable $target from line 33. var_dump'ing $target would 
-// throw an error, but sending it to the $_SESSION and calling it back out immediately after works. I believe this is because of the scope if the if statement
+// throw an error, but sending it to the $_SESSION and calling it back out immediately after works. I believe this is because of the scope of the if statement
 // that I declare it in, that begins on line 32. I don't know how I could have done this better.
 
 
