@@ -1,13 +1,16 @@
 @extends('templates.master')
 
 @section('title')
-    All Products
+All Products
 @endsection
 
 @section('content')
-    <h2>All products</h2>
 
-    <div id="product-index">
+<a href='products/new'>Add New Product</a>
+
+<h2>All products</h2>
+
+<div id="product-index">
     @foreach($products as $product)
     <a href='/product?id={{$product["id"]}}'>
         <div class="product">
@@ -16,7 +19,7 @@
         </div>
     </a>
     @endforeach
-    </div>
+</div>
 
 
 @endsection

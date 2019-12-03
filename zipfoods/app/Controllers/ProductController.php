@@ -72,4 +72,53 @@ class ProductController extends Controller
 
         $this->app->redirect('/product?id='.$id, ['confirmationName' => $name]);
     }
+
+    public function newProduct()
+    {
+        {
+        
+            $confirmationProduct = $this->app->old('confirmationProduct');
+
+           
+            return $this->app->view('products/new-product', [
+                "confirmationProduct" => $confirmationProduct
+            ]);
+
+
+        }
+    }
+
+    public function saveProduct()
+    {
+        $this->app->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'available' => 'required|digit',
+            'weight' => 'required|numeric',
+            'perishable' => 'required',
+        ]);
+
+        $name = $this->app->input('name');
+        $description = $this->app->input('description');
+        $price = $this->app->input('price');
+        $available = $this->app->input('available');
+        $weight = $this->app->input('weight');
+        $perishable = $this->app->input('perishable');
+
+        
+
+
+        $data = [
+            "name" => $name,
+            "description" => $description,
+            "price" => $price,
+            "available" => $available,
+            "weight" => $weight,
+            "perishable" => $perishable,
+        ];
+
+        $this->app->db()->insert("products", $data);
+        $this->app->redirect('/products/new', ['confirmationProduct' => $name]);
+    }
 }
