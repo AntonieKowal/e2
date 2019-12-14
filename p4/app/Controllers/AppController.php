@@ -7,16 +7,19 @@ class AppController extends Controller
      *
      */
     public function index()
+    {   
+        return $this->app->view("index");
+    }
+
+    public function roundHistory() 
     {
-        
-        return $this->app->view('index');
+        $rounds = $this->app->db()->all("rps");
+
+        return $this->app->view("round-history", ["rounds" => $rounds]);
     }
 
-    public function roundHistory() {
-        return $this->app->view("round-history");
-    }
-
-    public function round() {
+    public function round() 
+    {
         return $this->app->view("round");
     }
 }

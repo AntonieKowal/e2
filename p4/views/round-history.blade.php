@@ -9,4 +9,10 @@ Round History
 
 <h2>round history</h2>
 
+<ul>
+    @foreach($rounds as $round)
+    <li> {{ $round["winner"]}} </li>
+    @endforeach
+</ul>
+
 @endsection
