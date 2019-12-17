@@ -1,7 +1,7 @@
 @extends('templates.master')
 
 @section('title')
-{{ $app->config("app.name") }}
+Rock Paper Scissors
 @endsection
 
 @section('content')
