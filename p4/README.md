@@ -1,8 +1,11 @@
-# e2framework
+# Project 4
++ By: Antonie Kowal
++ Production URL: <http://p4.antoniephp.com>
 
-*e2framework* is a rudimentary PHP framework designed for the course [DGMD E-2 Web Programming for Beginners with PHP](https://hesweb.dev/e2).
+## Outside resources
+[CSS for the radio buttons](https://markheath.net/post/customize-radio-button-css)
 
-The goal of this software is to provide students an introduction to working with more advanced PHP frameworks such as Laravel and/or Symfony.
-
-+ __Documentation:__ <https://hesweb.dev/e2/notes#/php/e2framework/installation>
-+ __Guide:__ <https://hesweb.dev/e2/notes#/php/frameworks/intro>
+## Notes for instructor
+The provided ```/css/app.css``` style sheet would not work for me, despite seeming to be linked
+properly. I created a new CSS file named ```style.css``` and replaced the file name in the stylesheet
+link tag, and style.css worked properly. I'm not sure why this was happening.

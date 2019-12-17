@@ -6,13 +6,49 @@
 
 @section('content')
 
+<h2>Rock, Paper, Scissors</h2>
 
-<h2>explain the game</h2>
-<form>
-    <label>Rock<input type="radio" name="userChoice" value="rock"></label><br>
-    <label>Paper<input type="radio" name="userChoice" value="paper"></label><br>
-    <label>Scissors<input type="radio" name="userChoice" value="scissors"><br>
-        <button type="submit">Play!</button>
+<p id="directions">Play a basic game of Rock, Paper, Scissors versus your computer! You can view a full history of every
+    round played by
+    clicking the link below.
+</p>
+
+
+<form method="POST" action="/play-round">
+    <div class="radio-toolbar">
+        <input type="radio" id="rock" name="userChoice" value="rock">
+        <label for="rock">Rock</label>
+
+        <input type="radio" id="paper" name="userChoice" value="paper">
+        <label for="paper">Paper</label>
+
+        <input type="radio" id="scissors" name="userChoice" value="scissors">
+        <label for="scissors">Scissors</label>
+    </div>
+    <button class="btn btn-primary" type="submit">Play!</button>
 </form>
+<br>
+
+
+@if($app->errorsExist())
+<div class="error alert alert-danger">
+    Please select a move
+</div>
+@endif
+
+@if($data)
+<div class="alert alert-{{$data[0]}}">
+    You chose <strong>{{ ucfirst($data["user_move"]) }}</strong>, and the computer chose
+    <strong>{{ ucfirst($data["computer_move"]) }}</strong>.
+    <br>
+    @if($data["winner"] == "tie")
+    It was a tie.
+    @else
+    The {{$data["winner"]}} won!
+    @endif
+</div>
+@endif
+
+<a href='/round-history'>View all rounds</a>
 
 @endsection

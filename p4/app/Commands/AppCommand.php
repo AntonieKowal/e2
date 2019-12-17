@@ -10,35 +10,40 @@ class AppCommand extends Command
     }
 
     public function migrate() {
+
+        
+
         $this->app->db()->createTable("rps", [
             "user_move" => "varchar(255)",
             "computer_move" => "varchar(255)",
             "winner" => "varchar(255)",
-            #timestamp? refer to week 13
+            "timestamp" => "DATETIME",
         ]);
         dump("Migration complete!");
     }
 
     public function seed() {
 
+        $faker = \Faker\Factory::create();
         $moves = ["rock", "paper", "scissors"];
 
         for ($i = 0; $i < 10; $i++) {
-            $usermove = $moves[rand(0,2)];
-            $computermove = $moves[rand(0,2)];
+            $userMove = $moves[rand(0,2)];
+            $computerMove = $moves[rand(0,2)];
 
-            if (($usermove == "paper" and $computermove == "rock") || ($usermove == "scissors" and $computermove == "paper") || ($usermove == "rock" and $computermove == "scissors")) {
-                $winner = "User won!";
-            } elseif ($usermove == $computermove) {
-                $winner = "It was a tie!";
+            if (($userMove == "paper" and $computerMove == "rock") || ($userMove == "scissors" and $computerMove == "paper") || ($userMove == "rock" and $computerMove == "scissors")) {
+                $winner = "user";
+            } elseif ($userMove == $computerMove) {
+                $winner = "tie";
             } else {
-                $winner = "User lost!";
+                $winner = "computer";
             };
 
             $data = [
-                "user_move" => $usermove,
-                "computer_move" => $computermove,
+                "user_move" => $userMove,
+                "computer_move" => $computerMove,
                 "winner" => $winner,
+                "timestamp" => $faker->dateTimeThisMonth()->format("Y-m-d H:i:s"),
             ];
 
             $this->app->db()->insert("rps", $data);
