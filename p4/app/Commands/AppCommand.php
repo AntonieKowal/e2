@@ -11,8 +11,6 @@ class AppCommand extends Command
 
     public function migrate() {
 
-        
-
         $this->app->db()->createTable("rps", [
             "user_move" => "varchar(255)",
             "computer_move" => "varchar(255)",
